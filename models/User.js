@@ -16,7 +16,15 @@ const userSchema = new Schema(
            // match: [/.+@.+\..+/, 'Must match an email address!'] ??
         },
         thoughts: [thoughtSchema],
+        friends: [friendSchema]
+    },
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true,
+        },
     });
+
 
     const User = model('user', userSchema);
 
